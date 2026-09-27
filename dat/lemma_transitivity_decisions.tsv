@@ -1,0 +1,126 @@
+lemma	claude_call	your_call
+adakozik	no_object	object
+aggódik	no_object	
+akadékoskodik	no_object	
+alacsonyodik	no_object	
+alszik	no_object	object
+aszik	no_object	
+bizonyosodik	no_object	
+bomlik	no_object	
+bonyolódik	no_object	
+botlik	no_object	
+bámészkodik	no_object	
+bűvészkedik	no_object	
+bűzlik	no_object	
+csalódik	no_object	
+csapódik	no_object	
+csatlakozik	no_object	
+csetlik	no_object	
+csuklik	no_object	
+csúszik	no_object	
+dicsekszik	no_object	
+dumcsizik	no_object	
+döglik	no_object	
+egyezkedik	no_object	
+elhajlik	no_object	
+fejlődik	no_object	
+fohászkodik	no_object	
+fuldoklik	no_object	
+furikázik	no_object	object
+futkorászik	no_object	
+fénylik	no_object	
+gyanakszik	no_object	
+hadonászik	no_object	
+hagyatkozik	no_object	
+hahotázik	no_object	
+hajlik	no_object	
+haldoklik	no_object	
+hangolódik	no_object	
+hanyatlik	no_object	
+haragszik	no_object	
+hasonlik	no_object	
+heverészik	no_object	
+hugyozik	no_object	object
+hízik	no_object	
+húzódik	no_object	
+hüledezik	no_object	
+idősödik	no_object	
+igyekszik	no_object	object
+iparkodik	no_object	
+ismerkedik	no_object	
+jógázik	no_object	
+kapaszkodik	no_object	
+koncertezik	no_object	
+kotlik	no_object	object
+készülődik	no_object	
+kúszik	no_object	
+különbözik	no_object	
+küszködik	no_object	
+malmozik	no_object	
+meghajlik	no_object	
+mosdik	no_object	
+mosolyodik	no_object	
+mozizik	no_object	object
+múlik	no_object	
+nedvesedik	no_object	
+nyugszik	no_object	
+nyílik	no_object	
+ocsúdik	no_object	
+omlik	no_object	
+orientálódik	no_object	
+pihizik	no_object	
+poénkodik	no_object	
+rohangászik	no_object	
+romlik	no_object	
+rugaszkodik	no_object	
+siklik	no_object	
+szaglik	no_object	
+szedelőzködik	no_object	
+szemlélődik	no_object	
+színészkedik	no_object	
+születik	no_object	
+taktikázik	no_object	
+telítődik	no_object	
+tornászik	no_object	
+tornázik	no_object	
+tudódik	no_object	
+távolodik	no_object	
+töltődik	no_object	
+törekszik	no_object	object
+törődik	no_object	
+tündöklik	no_object	
+utazik	no_object	
+vesződik	no_object	
+vetemedik	no_object	
+viccelődik	no_object	
+visszakozik	no_object	
+vitorlázik	no_object	
+vizsgálódik	no_object	
+vonaglik	no_object	
+vágódik	no_object	
+válik	no_object	
+vívódik	no_object	
+vörösödik	no_object	
+zajlik	no_object	
+zárkózik	no_object	
+zötykölődik	no_object	
+állapodik	no_object	
+építkezik	no_object	
+érdeklődik	no_object	
+öltözködik	no_object	
+öregszik	no_object	
+ügyeskedik	no_object	
+ügyködik	no_object	
+baszik	object_capable	
+bogarászik	object_capable	
+cselekszik	object_capable	
+dudorászik	object_capable	
+fekszik	object_capable	no_object
+hazudozik	object_capable	
+kotorászik	object_capable	
+pakolászik	object_capable	
+teázik	object_capable	no_object
+tojik	object_capable	
+toszik	object_capable	
+étkezik	object_capable	
+úszik	object_capable	
