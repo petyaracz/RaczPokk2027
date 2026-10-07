@@ -14,6 +14,23 @@ d = arrow::read_parquet('~/Github/Webcorpus2FrequencyList/frequencies.parquet') 
 
 # -- def -- #
 
+# big ik/nem ik set
+all = d |> 
+  filter(
+    xpostag == '[/V][Prs.NDef.3Sg]' | xpostag == '[/V][Prs.NDef.1Sg]',
+    str_detect(lemma, '(zik|szik|dik|lik|z|sz|d|l)$')
+  ) |> 
+  mutate(
+    bare_form = str_remove(lemma, 'ik'),
+    ik_verb = str_detect(lemma, 'ik$'),
+    suffix = case_when(
+      str_detect(bare_form, 'sz$') ~ 'szik',
+      str_detect(bare_form, '[^s]z$') ~ 'zik',
+      str_detect(bare_form, '[^l]l$') ~ 'lik',
+      str_detect(bare_form, '[oeö]d$') ~ 'Vdik'
+    )
+  )
+
 # plural nouns, so we can drop verb/noun homographs below (e.g. horgászok is both "I fish" and "anglers")
 plur = d |>
   filter(xpostag == '[/N][Pl][Nom]') |>
@@ -36,6 +53,26 @@ sg = d |>
 sg = sg |>
   filter(!form %in% plur)
 
+# find relevant no ik pairs
+noik = d |> 
+  filter(
+    xpostag == '[/V][Prs.NDef.3Sg]',
+    str_detect(form, '(sz|z|l|d)$')
+  ) |>
+  group_by(lemma) |>
+  arrange(-llfpm10) |>
+  slice(1) |>  # one form per lemma: the most frequent attested -k form
+  ungroup() |> 
+  mutate(
+    ik_form = paste0(form, 'ik'),
+    suffix = case_when(
+      str_detect(ik_form, 'szik$') ~ 'szik',
+      str_detect(ik_form, '[^s]zik$') ~ 'zik',
+      str_detect(ik_form, '[^l]lik$') ~ 'lik',
+      str_detect(ik_form, '[oeö]dik$') ~ 'Vdik'
+    )
+         )
+
 sg = sg |>
   mutate(
     freqQ = ntile(lfpm10, 10),  # frequency decile, used below to avoid the low-frequency tail. using 1sg so verbs that very rarely show up in 1sg don't get sampled in ("itten áramlok")
@@ -47,6 +84,10 @@ sg = sg |>
       T ~ 'stem'
     )
   )
+
+# compare and contrast
+noik = noik |> 
+  mutate(overlap = ik_form %in% sg$lemma)
 
 # -- run -- #
 
@@ -77,3 +118,5 @@ ik_query = glue::glue('({ik_query})')
 write_tsv(ik_sample, 'dat/ik_sample.tsv')
 write_lines(ik_query, 'dat/ik_query.txt')
 write_tsv(sg, 'dat/large_ik.tsv')
+write_tsv(noik, 'dat/large_noik_szldz.tsv')
+write_tsv(all, 'dat/verbs.tsv')
